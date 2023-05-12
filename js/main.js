@@ -2,19 +2,22 @@
 const numRand = document.getElementById('numeriRandom');
 const numUserOk = document.getElementById('numIndovinati');
 const numUserNotOk = document.getElementById('numSbagliati');
+const button = document.getElementById('send');
 
 // Visualizzare in pagina 5 numeri casuali.
 const numGenerati = createArrRandNumOrd(100);
 numRand.innerHTML += numGenerati;
 
 // Timer 30 secondi
-setTimeout(deleteInnerHtml, 30000);
+setTimeout(deleteInnerHtml, 2000);
+
+button.addEventListener('click', checkNumber);
 
 
 // FUNZIONI
 function deleteInnerHtml(){
     numRand.innerHTML = '';
-    
+    /*
     for (let i = 0; i < 5; i++) {
         let userNum = parseInt(prompt('Inserisci i numeri che ti ricordi uno per volta'));
         console.log(userNum);
@@ -26,6 +29,7 @@ function deleteInnerHtml(){
         }
         
     }
+    */
 }
 
 function createRandNumMinMax(newMin, newMax) {
@@ -46,4 +50,13 @@ function createArrRandNumOrd(max) {
     return numArr;
 }
 
+function checkNumber (){
+    const userNumber = document.getElementById('userNumber').value;
 
+    if (numGenerati.includes(userNumber)) {
+        numUserOk.innerHTML += userNumber + ' ';
+    } else {
+        numUserNotOk.innerHTML += userNumber + ' ';
+    }    
+
+}

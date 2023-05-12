@@ -51,7 +51,7 @@ function createArrRandNumOrd(max) {
 }
 
 function checkNumber (){
-    const userNumber = document.getElementById('userNumber').value;
+    const userNumber = parseInt(document.getElementById('userNumber').value);
 
     if (numGenerati.includes(userNumber)) {
         numUserOk.innerHTML += userNumber + ' ';
